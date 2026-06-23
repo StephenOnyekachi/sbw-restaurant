@@ -1,0 +1,95 @@
+
+
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+
+<div class="fixed mt-6 z-100 flex w-full">
+    <div class="flex m-5 mt-0 items-center justify-between bg-white w-full border-1 border-white rounded">
+        <div class="flex items-center">
+            <h2 class="text-black font-black px-2">
+                🍽️ SBW Maison
+            </h2>
+        </div>
+        <div class="flex items-center gap-2 p-2">
+
+            <a href="{% url 'index' %}"
+                {% if request.path == '/' %}
+                    class="py-2 px-2 capitalize text-white bg-black rounded"
+                {% else %}
+                    class="py-2 px-2 capitalize text-black bg-white rounded
+                    backdrop-blur-md hover:bg-gray-400 hover:text-white transition duration-300"
+                {% endif %}
+            >
+                home
+            </a>
+
+            <a href="{% url 'samples' %}"
+                {% if request.path == '/samples/' %}
+                    class="py-2 px-2 capitalize text-white bg-black rounded"
+                {% else %}
+                    class="py-2 px-2 capitalize text-black bg-white rounded
+                    backdrop-blur-md hover:bg-gray-400 hover:text-white transition duration-300"
+                {% endif %}
+            >
+                menu
+            </a>
+
+            {% if request.path == '/' %}
+
+            <a href="{% url 'login' %}"
+                class="py-2 px-2 capitalize text-white bg-white rounded
+                backdrop-blur-md hover:bg-red-400 hover:text-white transition duration-300" 
+            >
+                <i class="fa fa-power-off text-red-300"></i>
+            </a>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% if messages %}
+
+<div class="fixed mt-6 z-100 flex w-full">
+    <div class="flex m-5 mt-0 items-center justify-between bg-white w-full border-1 border-white rounded">
+        <div class="flex items-center">
+            <h2 class="text-black font-black px-2">
+                🍽️ SBW Maison
+            </h2>
+        </div>
+        <div class="flex items-center gap-2 p-2">
+
+            <p class="text-gray-400 capitalize">
+                {% for message in messages %}
+
+                {{ message }}
+                
+                {% endfor %}
+            </p>
+
+            <a href=""
+                class="py-2 px-2 capitalize text-white bg-white rounded
+                backdrop-blur-md hover:bg-red-400 hover:text-white transition duration-300"
+            >
+                <i class="fa fa-times text-red-300"></i>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
+

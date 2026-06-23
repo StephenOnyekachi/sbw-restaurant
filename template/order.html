@@ -1,0 +1,172 @@
+
+
+{% extends 'extends/header.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+{% include 'extends/gnav.html' %}
+
+<div class="relative min-h-screen pt-5">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover brightness-50"
+    >
+        <source src="{% static 'files/v3.mp4' %}">
+    </video>
+
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div class="">
+
+            <div class="p-2">
+                <h1 class="
+                    text-6xl md:text-8xl font-black text-center mt-20
+                    bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent
+                ">
+                    SBW Maison Food Menu
+                </h1>
+            </div>
+
+            <div class="py-5">
+                <h1 class="
+                    text-4xl md:text-6xl font-black text-center mt-20
+                    bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent
+                ">
+                    Place Your Order Here
+                </h1>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="bg-black p-2">
+
+    <div>
+
+        <div class="p-2">
+            <h1 class="text-3xl md:text-4xl font-black text-white text-center zoom-in">
+                Foods Samples.
+            </h1>
+        </div>
+
+        <div class="flex flex-wrap gap-6 justify-center p-8">
+
+            {% if food %}
+
+            <div class="w-full items-stretch rounded bg-white/10 border border-white/2">
+                <div class="flex items-center p-5">
+                    <i class="
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    ">🍽️</i>
+                    <h3 id="name" class="text-2xl font-black text-white p-2 capitalize">
+                        {{ food.name }}.
+                    </h3>
+                </div>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-[250px]">
+                        <img 
+                            id="food-image"
+                            src="{{ food.image.url }}" 
+                            alt="image"
+                            class="w-full object-contain"
+                        >
+                    </div>
+                    <div class="text-white rounded shadow p-5">
+                        <h3 id="currentprice" class="text-2xl font-black text-white">
+                            ₦ {{ food.amount }}
+                        </h3>
+                        <p class="capitalize">
+                            {{ food.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full items-stretch rounded bg-white/10 border border-white/2">
+                <div class="flex items-center p-5">
+                    <i class="fa fa-edit
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    "></i>
+                    <h3 class="text-2xl font-black text-white p-2 capitalize">
+                        order setup.
+                    </h3>
+                </div>
+                <div class="">
+
+                    <div class="py-2 px-5">
+                        <h3 class="text-2xl font-black text-white capitalize">
+                            Total Quantity Price: ₦
+                            <span id="price">{{ food.amount }}.</span>
+                        </h3>
+                        <h1 class="text-2xl font-black text-white capitalize">
+                            Quantity
+                        </h1>
+                    </div>
+                    <div class="flex items-center gap-2 py-2 px-5">
+                        <button type="button" id="minus"
+                            class="w-full text-center p-2 px-5 bg-white/10 border rounded capitalize
+                            border-white/20 text-white text-xl backdrop-blur-md
+                            hover:bg-gray-400 transition duration-300"
+                        >
+                            -
+                        </button>
+                        <input class="w-full text-center text-white p-2 px-5 outline-none rounded" type="number" value="1" id="value">
+                        <button type="button" id="add"
+                            class="w-full text-center p-2 bg-white/10 border rounded capitalize
+                            border-white/20 text-white text-xl backdrop-blur-md
+                            hover:bg-gray-400 transition duration-300"
+                        >
+                            +
+                        </button>
+                    </div>
+
+                    <div class="py-2 px-5">
+                        <form action="">
+                            <div class="order-forms">
+                                <input type="number" value="" name="quantity" hidden>
+                                <input type="number" value="" name="price" hidden>
+                                <textarea id="address" placeholder="Address" name="address" required
+                                    class="w-full text-left text-white p-2 bg-white/10 border border-white rounded capitalize outline-none"
+                                ></textarea>
+                                <div class="flex items-center gap-2 py-2">
+
+                                    <button type="submit"
+                                        class="w-full p-2 bg-white/10 border rounded 
+                                        border-white/20 text-white text-xl backdrop-blur-md
+                                        hover:bg-green-400 transition duration-300"
+                                    >
+                                        Order Now
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% include 'extends/gfooter.html' %}
+
+{% endblock %}
+

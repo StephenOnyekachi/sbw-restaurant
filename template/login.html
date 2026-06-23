@@ -1,0 +1,110 @@
+
+
+{% extends 'extends/header.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+{% include 'extends/gnav.html' %}
+
+<div class="relative min-h-screen pt-20">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover brightness-50"
+    >
+        <source src="{% static 'files/v4.mp4' %}">
+    </video>
+
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div>
+
+            <div class="p-2">
+                <h1 class="
+                    text-4xl md:text-6xl font-black text-center
+                    bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent
+                ">
+                    SBW Maison Food Menu
+                </h1>
+            </div>
+
+            <div class="p-5">
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">
+                    We serve fresh, affordable, and delicious meals made with love. 
+                    Perfect for lunch, dinner, and quick cravings.
+                </p>
+            </div>
+
+            <div class="p-5">
+
+                <div>
+                    <form action=""
+                        method="post" enctype="multipart/form-data"
+                    >
+
+                        {% csrf_token %}
+
+                        <div>
+                            <input type="text" 
+                                placeholder="Your Username:" name="username"
+                                class="w-full outline-none rounded border border-white text-white p-2"
+                            >
+                        </div>
+                        <br>
+                        <div>
+                            <input type="password" 
+                                placeholder="Your Password:" name="password"
+                                class="w-full outline-none rounded border border-white text-white p-2"
+                            >
+                        </div>
+                        <br>
+                        <div>
+                            <button
+                                class="w-full p-2 bg-white/10 border rounded border-white/20 text-white text-xl backdrop-blur-md"
+                            >
+                                Login Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap gap-5 mt-6 items-center justify-center">
+
+                <div class="text-gray-300 slidetop">
+                    <p>
+                        support@SBW-Maison-Kitchen.com | +234 903 1360 947
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap gap-5 mt-6 items-center justify-center">
+
+                <div class="text-gray-300 text-center slidetop">
+                    <p>
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> 
+                        SBW Maison Kitchen. All rights reserved
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

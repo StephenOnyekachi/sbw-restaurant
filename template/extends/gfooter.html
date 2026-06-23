@@ -1,0 +1,107 @@
+
+
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+<div class="relative min-h-screen">
+
+    <img src="{% static 'files/h1.jpg' %}"
+        alt="image"
+        class="absolute inset-0 w-full h-full object-cover brightness-25"
+    >
+
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div>
+
+            <div class="p-2">
+                <h1 class="
+                    text-3xl md:text-4xl font-black text-center
+                    bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent slidetop
+                ">
+                    Contact SBW Maison Kitchen.
+                </h1>
+            </div>
+
+            <div class="p-5">
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto slidetop">
+                    SBW Maison is a modern fine dining brand born from the vision of SBW, a global lifestyle 
+                    and hospitality company focused on excellence, culture, and luxury experience.
+                </p>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto slidetop">
+                    Founded in Asaba, Nigeria, SBW Maison was created to redefine African dining by 
+                    blending local richness with international elegance. At SBW Maison, food is not 
+                    just served it is crafted as an experience. Every dish is prepared with 
+                    precision, passion, and attention to detail, reflecting a commitment to quality and sophistication.
+                </p>
+            </div>
+
+            <div class="p-5 slidetop">
+
+                <div>
+                    <form action=""
+                        method="post" enctype="multipart/form-data"
+                    >
+
+                        {% csrf_token %}
+                        
+                        <div>
+                            <input type="email" 
+                                placeholder="Your Email:"
+                                class="w-full outline-none rounded border border-white text-white p-2"
+                            >
+                        </div>
+                        <br>
+                        <div>
+                            <textarea name="" id="" placeholder="Message:"
+                                class="w-full outline-none rounded border border-white text-white p-2 h-20"
+                            ></textarea>
+                        </div>
+                        <br>
+                        <div>
+                            <button
+                                class="w-full p-2 bg-white/10 border rounded border-white/20 text-white text-xl backdrop-blur-md"
+                            >
+                                Send Mail
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap gap-5 mt-6 items-center justify-center">
+
+                <div class="text-gray-300 text-center slidetop">
+                    <p>
+                        &copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script> 
+                        SBW Maison Kitchen. All rights reserved
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap gap-5 mt-6 items-center justify-center">
+
+                <div class="text-gray-300 slidetop">
+                    <p>
+                        support@SBW-Maison-Kitchen.com | +234 903 1360 947
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,146 @@
+
+
+{% extends 'extends/header.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+{% include 'extends/anav.html' %}
+
+<div class="bg-black p-10 pt-30">
+
+    <div>
+
+        <div class="p-2">
+            <h1 class="text-3xl md:text-4xl font-black text-white text-left">
+                Edit Sample.
+            </h1>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-5 px-2 py-5 items-stretch">
+
+            {% if food %}
+
+            <div class="w-full items-stretch rounded bg-white/10 border border-white/2">
+                <div class="flex items-center p-5">
+                    <i class="
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    ">🍽️</i>
+                    <h3 class="text-2xl font-black text-white p-2 capitalize">
+                        {{ food.name }}.
+                    </h3>
+                </div>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-[250px]">
+                        <img 
+                            src="{{ food.image.url }}" 
+                            alt="image"
+                            class="w-full object-contain"
+                        >
+                    </div>
+                    <div class="text-white rounded shadow p-5">
+                        <h3 class="text-2xl font-black text-white">
+                            ₦ {{ food.amount }}
+                        </h3>
+                        <p class="capitalize">
+                            {{ food.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full items-stretch rounded bg-white/10 border border-white/2">
+                <div class="flex items-center p-5">
+                    <i class="fa fa-edit
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    "></i>
+                    <h3 class="text-2xl font-black text-white p-2 capitalize">
+                        edit here.
+                    </h3>
+                </div>
+                <div class="">
+                    <form action=""
+                        method="post" enctype="multipart/form-data"
+                    >
+
+                        {% csrf_token %}
+
+                        <div class="py-2 px-5">
+                            <input type="file" name="image"
+                                class="w-full outline-none rounded border border-white text-white p-2"
+                            >
+                        </div>
+                        <div class="py-2 px-5">
+                            <input type="text" name="title"
+                                placeholder="New Name Here:" value="{{ food.name }}"
+                                class="w-full outline-none rounded border border-white text-white p-2"
+                            >
+                        </div>
+                        <div class="py-2 px-5">
+                            <input type="number" name="price"
+                                placeholder="New Price Here:" value="{{ food.amount }}"
+                                class="w-full outline-none rounded border border-white text-white p-2"
+                            >
+                        </div>
+                        <div class="py-2 px-5">
+                            <select name="category" id=""
+                                class="w-full outline-none rounded border border-white text-gray-500 p-2"
+                            >
+                                <option value="">
+                                    Selete Category
+                                </option>
+                                {% for value, label in category %}
+                                <option value="{{ value }}">
+                                    {{ label }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="py-2 px-5">
+                            <select name="status" id=""
+                                class="w-full outline-none rounded border border-white text-gray-500 p-2"
+                            >
+                                <option value="">
+                                    Selete Status
+                                </option>
+                                {% for value, label in status %}
+                                <option value="{{ value }}">
+                                    {{ label }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="py-2 px-5">
+                            <textarea name="description" id="" placeholder="Message:"
+                                class="w-full outline-none rounded border border-white text-white p-2 h-30"
+                            >{{ food.description }}</textarea>
+                        </div>
+                        <div class="py-2 px-5 pb-5">
+                            <button
+                                class="w-full p-2 bg-white/10 border rounded 
+                                border-white/20 text-white text-xl backdrop-blur-md
+                                hover:bg-green-400 transition duration-300"
+                            >
+                                Update Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% include 'extends/afooter.html' %}
+
+{% endblock %}
+

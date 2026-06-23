@@ -1,0 +1,11 @@
+
+npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch
+
+pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate && python manage.py createsuperuser --noinput || true
+pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+pip freeze > requirements.txt
+pip install -r requirements.txt

@@ -1,0 +1,268 @@
+
+
+{% extends 'extends/header.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+{% include 'extends/gnav.html' %}
+
+<div class="relative min-h-screen pt-5">
+
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover brightness-50"
+    >
+        <source src="{% static 'files/v3.mp4' %}">
+    </video>
+
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div>
+            <div class="p-2">
+                <h1 class="
+                    text-6xl md:text-8xl font-black text-center mt-20 sm:mt-[50px]
+                    bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent
+                ">
+                    Welcome to SBW Maison
+                </h1>
+            </div>
+            <div class="p-5">
+                <p class="text-gray-300 text-2xl font-black mt-4 max-w-2xl mx-auto">
+                    We serve fresh, affordable, and delicious meals made with love. 
+                    Perfect for lunch, dinner, and quick cravings.
+                </p>
+                <p class="text-gray-300 text-2xl font-black mt-4 max-w-2xl mx-auto">
+                    Enjoy tasty homemade meals anytime. Delicious Meals Delivered Fresh
+                </p>
+            </div>
+            <div class="p-5 flex items-center justify-center">
+                <span class="typing text-2xl font-black"></span>
+            </div>
+
+            <div class="flex flex-wrap gap-5 mt-6 items-center justify-center">
+
+                <a href="#"
+                    class="w-12 h-12 flex items-center justify-center rounded-full 
+                    bg-white/10 border border-white/20 text-white text-xl
+                    backdrop-blur-md shadow-lg
+                    hover:bg-blue-600 hover:scale-110
+                    transition duration-300">
+
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 flex items-center justify-center rounded-full 
+                    bg-white/10 border border-white/20 text-white text-xl
+                    backdrop-blur-md shadow-lg
+                    hover:bg-pink-600 hover:scale-110
+                    transition duration-300">
+
+                    <i class="fa fa-instagram"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 flex items-center justify-center rounded-full 
+                    bg-white/10 border border-white/20 text-white text-xl
+                    backdrop-black-md shadow-lg
+                    hover:bg-gray-600 hover:scale-110
+                    transition duration-300">
+
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 flex items-center justify-center rounded-full 
+                    bg-white/10 border border-white/20 text-white text-xl
+                    backdrop-blur-md shadow-lg
+                    hover:bg-green-400 hover:scale-110
+                    transition duration-300">
+
+                    <i class="fa fa-whatsapp"></i>
+                </a>
+                <a href="#"
+                    class="w-12 h-12 flex items-center justify-center rounded-full 
+                    bg-white/10 border border-white/20 text-white text-xl
+                    backdrop-blur-md shadow-lg
+                    hover:bg-red-500 hover:scale-110
+                    transition duration-300">
+
+                    <i class="fa fa-youtube"></i>
+                </a>
+                <!-- <a href="#"
+                    class="w-12 h-12 flex items-center justify-center rounded-full 
+                    bg-white/10 border border-white/20 text-white text-xl
+                    backdrop-blur-md shadow-lg
+                    hover:bg-blue-400 hover:scale-110
+                    transition duration-300">
+
+                    <i class="fa fa-tiktok"></i>
+                </a> -->
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="relative min-h-screen">
+
+    <img src="{% static 'files/me1.png' %}" alt=""
+        class="absolute inset-0 w-full h-full object-cover sm:object-contain md:object-cover brightness-25"
+    >
+
+    <div class="absolute inset-0 bg-black/100"></div>
+
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-6">
+        <div>
+
+            <div class="p-2">
+                <h1 class="text-3xl md:text-4xl font-black text-white text-center slidetop">
+                    About SBW Maison.
+                </h1>
+            </div>
+
+            <div class="p-2 max-w-3xl mx-auto">
+                <h3 class="text-1xl md:text-2xl font-black text-white py-5 slideleft">
+                    At SBW Maison, 
+                </h3>
+                <p class="text-white py-2 slidetop">
+                    SBW Maison is a modern fine dining brand born from the vision 
+                    of SBW, a global lifestyle and hospitality 
+                    company focused on excellence, culture, and luxury experience.
+                </p>
+                <p class="text-white py-2 slidetop">
+                    Founded in Asaba, Nigeria, SBW Maison was created to redefine 
+                    African dining by blending local richness with international elegance.
+                    At SBW Maison, food is not just served it is crafted as an experience. Every dish is prepared 
+                    with precision, passion, and attention to detail, reflecting a commitment to quality and sophistication.
+                </p>
+                <p class="text-white py-2 slidetop">
+                    SBW Maison represents the beginning of a global journey expanding from Nigeria to the world, 
+                    with a vision to become a leading name in luxury dining and hospitality.
+                    SBW Maison Where taste meets elegance.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="bg-black p-10">
+
+    <div>
+
+        <div class="p-2">
+            <h1 class="text-3xl md:text-4xl font-black text-white text-center slidetop">
+                How To Order
+            </h1>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-5 px-2 py-5 items-stretch">
+
+            <div class="w-90 items-stretch rounded bg-white/10 border border-white/2 p-5 zoom-in">
+                <div class="py-2 text-center">
+                    <i class=" 
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    ">🍽️</i>
+                </div>
+                <div class="py-2 text-center">
+                    <h3 class="text-2xl font-black text-white p-2">
+                        Browse Menu
+                    </h3>
+                </div>
+                <div class="text-white text-center py-2">
+                    <p>
+                        To see all vailiable food
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-90 items-stretch rounded bg-white/10 border border-white/2 p-5 zoom-in">
+                <div class="py-2 text-center">
+                    <i class=" 
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    ">🍽️</i>
+                </div>
+                <div class="py-2 text-center">
+                    <h3 class="text-2xl font-black text-white p-2">
+                        Click Order or
+                    </h3>
+                </div>
+                <div class="text-white text-center py-2">
+                    <p>
+                        Add to Cart
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-90 items-stretch rounded bg-white/10 border border-white/2 p-5 zoom-in">
+                <div class="py-2 text-center">
+                    <i class=" 
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    ">🍽️</i>
+                </div>
+                <div class="py-2 text-center">
+                    <h3 class="text-2xl font-black text-white p-2">
+                        Chat on WhatsApp or 
+                    </h3>
+                </div>
+                <div class="text-white text-center py-2">
+                    <p>
+                        View Order Cart
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-90 items-stretch rounded bg-white/10 border border-white/2 p-5 zoom-in">
+                <div class="py-2 text-center">
+                    <i class=" 
+                        text-white rounded-full 
+                        bg-white/10 border border-white/2 p-5
+                    ">🍽️</i>
+                </div>
+                <div class="py-2 text-center">
+                    <h3 class="text-2xl font-black text-white p-2">
+                        Procceed with 
+                    </h3>
+                </div>
+                <div class="text-white text-center py-2">
+                    <p>
+                        Payment
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="flex justify-between w-full bg-black pt-10">
+
+    <div class="flex m-5 mt-0 px-2 items-center justify-between bg-white w-full border border-white rounded ">
+        <div class="flex items-center gap-2 p-2">
+            <h3 class="font-black">1,000+</h3>
+            <p>Active Investors</p>
+        </div>
+        <div class="flex items-center gap-2 p-2">
+            <h3 class="font-black">500+</h3>
+            <p>Trusted Partners</p>
+        </div>
+    </div>
+
+</div>
+
+{% include 'extends/gfooter.html' %}
+
+{% endblock %}
+
