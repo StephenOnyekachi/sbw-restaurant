@@ -232,15 +232,29 @@ def Order(request, pk):
 # for food menu
 def Samples(request):
 
-    if request.method == "Post":
-        category = request.POST.get(category)
+    # importing choices
+    category = Food.CATEGORY_CHOICES
+
+    # for filtered food
+    filterFood = ''
+
+    if request.method == 'POST':
+
+        # searching for food(filtering)
+        query = request.POST.get('query','')
+        filterFood = Food.objects.filter(
+            Q(name__icontains=query) |
+            Q(amount__icontains=query) |
+            Q(description__icontains=query) |
+            Q(category__icontains=query)
+        )
 
     # foods = Food.objects.filter(category=category)
     allfood = Food.objects.all()
 
     context = {
         'allfood':allfood,
-        # 'foods':foods,
+        'filterFood':filterFood,
     }
     return render(request, 'samples.html', context)
     # return HttpResponse('welcome to django')
