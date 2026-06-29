@@ -29,6 +29,7 @@ class Food(models.Model):
     name = models.CharField(max_length=200)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     description = models.TextField(null=True, blank=True)
+    number = models.CharField(max_length=20, blank=True)
     date_added = models.DateField(auto_now_add=True)
     status = models.CharField(
         max_length=20,

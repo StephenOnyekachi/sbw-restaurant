@@ -15,7 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Extract numeric price (remove ₦)
     const getBasePrice = () => {
-        return parseFloat(basePriceEl.innerText.replace('₦', '')) || 0;
+        return parseFloat(
+            basePriceEl.innerText
+                .replace('₦', '')
+                .replace(/,/g, '')
+                .trim()
+        ) || 0;
     };
 
     // Update total price + hidden inputs
@@ -79,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Address: ${address}
         `;
 
-        const phone = "2349031360947";
+        const phone = document.querySelector('#number').innerText;
 
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 

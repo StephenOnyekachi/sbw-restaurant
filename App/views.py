@@ -290,12 +290,18 @@ def AddFood(request):
         name = request.POST.get('title')
         amount = request.POST.get('price')
         description = request.POST.get('description')
+        number = request.POST.get('number')
 
         status = request.POST.get('status')
         category = request.POST.get('category')
 
         # to prevent error occurance while creating account
         with transaction.atomic():
+
+            if number:
+                number = re.sub(r'\D', '', number)
+                if number.startswith('0'):
+                    number = number[1:]
 
             Food.objects.create(
                 user=request.user,
@@ -304,7 +310,8 @@ def AddFood(request):
                 amount=amount,
                 description=description,
                 status=status,
-                category=category
+                category=category,
+                number=number,
             )
 
             messages.success(request, f"{name}, was added successfully")

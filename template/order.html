@@ -70,7 +70,10 @@
                         bg-white/10 border border-white/2 p-5
                     ">🍽️</i>
                     <h3 id="name" class="text-1xl font-black text-white p-2 capitalize">
-                        {{ food.name }}.
+                        {{ food.name }}
+                    </h3>
+                    <h3 id="number" hidden>
+                        {{ food.number }}
                     </h3>
                 </div>
                 <div class="flex flex-wrap">
@@ -108,7 +111,7 @@
                     <div class="py-2 px-5">
                         <h3 class="text-1xl font-black text-white capitalize">
                             Total Quantity Price: ₦
-                            <span id="price">{{ food.amount }}.</span>
+                            <span id="price">{{ food.amount }}</span>
                         </h3>
                         <h1 class="text-1xl font-black text-white capitalize">
                             Quantity
